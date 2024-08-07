@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from "react-native-vector-icons/Ionicons";
 import {
   Keyboard,
   KeyboardAvoidingView,
@@ -17,8 +17,10 @@ export default function App() {
   const [taskItems, setTaskItems] = useState([]);
 
   const handleAddTask = () => {
-    Keyboard.dismiss();
-    setTaskItems([...taskItems, task]);
+    if (task !== null) {
+      Keyboard.dismiss();
+      setTaskItems([...taskItems, task]);
+    }
     setTask(null);
   };
 
@@ -101,7 +103,7 @@ const styles = StyleSheet.create({
       width: 0,
       height: 3,
     },
-    shadowOpacity:  0.17,
+    shadowOpacity: 0.17,
     shadowRadius: 3.05,
     elevation: 25,
   },
@@ -119,7 +121,7 @@ const styles = StyleSheet.create({
       width: 0,
       height: 3,
     },
-    shadowOpacity:  0.17,
+    shadowOpacity: 0.17,
     shadowRadius: 3.05,
     elevation: 25,
   },
